@@ -86,34 +86,63 @@ Aşağıda tablolar ve şemaları verilmiş.
 
    1- öğrenci tablosuna 'sehir' alanı ekleyiniz.
 
+   alter table ogrenci
+   add sehir varchar(20)
 
    2- tablolarda veri olarak tarih geçen alanlarda veri tipini string yerine DateTime olarak ayarlayınız.
 
+   alter table ogrenci
+   modify column tarih datetime
 
    3- öğrenci tablosuna 'dogum_yeri' alanı ekleyiniz ve default değerini 'Türkiye' yapınız.
 
+   alter table ogrenci
+   add dogum_yeri varchar(20)
+   default 'Türkiye'
 
    4- öğrenci tablosundan 'puan' alanını siliniz.
 
+   alter table ogrenci
+   drop puan
 
    5- öğrenciler tablosundaki kiz öğrencileri alarak kiz_ogrenciler tablosu oluşturunuz.
-   
+
+   create table kiz_ogrenciler
+   select * from ogrenci
+   where cinsiyet = 'K'
    
    6- kiz_ogrenciler tablosunu siliniz.
 
+   drop table kiz_ogrenciler
 
    7- kiz_yurdu tablosu oluşturunuz(sadece 'ad' alanı olsun). 1 kayıt ekleyiniz.
       öğrenci tablosundaki kız öğrencileri kullanarak kiz_yurdunda_kalanlar tablosu oluşturunuz
 
+   create table kiz_yurdu (
+   Ad varchar(20)
+   )
+
+   insert into kiz_yurdu (Ad)
+   values ('defne')
+
+   create table kiz_yurdunda_kalanlar
+   select * from ogrenci
+   where cinsiyet = 'K'
 
    8- kiz_ogrenciler tablosunun adını kogrenciler olarak değiştiriniz
 
+   alter table kiz_ogrenciler
+   rename kogrenciler
 
    9- yazar tablosundaki 'ad' alanının adını 'name' olarak güncelleyiniz.
 
+   alter table yazar
+   change column yazarad name varchar(20)
 
    10- yazar tablosuna 'ulke' ve 'universite' alanları ekleyiniz 'ulke'nin default değeri 'Türkiye' olsun.
 
+   alter table yazar
+   add column (ulke varchar(20) default 'Türkiye',universite varchar(20))
 
    11- tablo ilişkilerine 5'er tane örnek veriniz (1-1, 1-n, n-n)  
 
