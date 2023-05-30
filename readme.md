@@ -146,3 +146,4 @@ Aşağıda tablolar ve şemaları verilmiş.
 
    11- tablo ilişkilerine 5'er tane örnek veriniz (1-1, 1-n, n-n)  
 
+   Deneme
